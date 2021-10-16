@@ -1,6 +1,6 @@
 # Streaming twitter con kafka simple con producer y consumer con mongodb
 
-Demo de streaming de tuits usando la api de Twitter y enviando los tuis a kafka y guardado en mongodb-
+Demo de streaming de tuits usando la api de Twitter y enviando los tuis a kafka y guardado en mongodb.
 
 &nbsp;
 ## Requerimientos
@@ -49,35 +49,42 @@ docker-compose -f "docker-compose.yaml" up -d
 
 3. Configurar los parametros
    
-* Configurar el archivo *config.py* seteando la variable **TOPIC_NAME** con el valor del topico que queremos crear
+Configurar el archivo **config.py**:  
+* Setear la variable **TOPIC_NAME** con el valor del topico que queremos crear
 ```
 TOPIC_NAME = 'twitter'
 ```
 
-* Configurar los token de la api de twitter
-```
-API_KEY = 'INGRESAR_LA_API_KEY'
-API_SECRET_KEY = 'INGRESAR_LA_API_SECRET_KEY'
-ACCESS_TOKEN = 'INGRESAR_EL_ACCESS_TOKEN'
-ACCESS_TOKEN_SECRET = 'INGRESAR_EL_ACCESS_TOKEN_SECRET'
-```
-
-* Configurar las variables de busqueda:
+* Variables de busqueda:
 ```
 TRACKS = ['#argentina','argentina','boca','river','ronaldo','messi','psg','barcelona','manchesterd']
 LOCATION = [-126.2,-56.0,22.3,58.9]
 LANGUAGES = ['en','es']
 ```
 
+En el archivo **twitter_api.env** setear la claves de la api de twitter:
+```
+TWITTER_API_KEY = 'INGRESAR_LA_API_KEY'
+TWITTER_API_SECRET_KEY = 'INGRESAR_LA_API_SECRET_KEY'
+TWITTER_ACCESS_TOKEN = 'INGRESAR_EL_ACCESS_TOKEN'
+TWITTER_ACCESS_TOKEN_SECRET = 'INGRESAR_EL_ACCESS_TOKEN_SECRET'
+```
+
+En el archivo **mongodb.env** setear la password de la base mongodb:
+```
+MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD='INGRESE_PASSWORD'
+ME_CONFIG_MONGODB_ADMINUSERNAME=root
+ME_CONFIG_MONGODB_ADMINPASSWORD='INGRESE_PASSWORD'
+```
+
+
+
 4. Ejecutar el archivo **new_topic.py** para crear el topico en kafka.
    
-5. Ejecutar el archivo **producer.py** para correr el producer de kafka.
-   
-Este archivo va a conectarse a twitter y leer los tuits con los parametros establecidos y los va a disponibilizar en el topico.
+5. Ejecutar el archivo **producer.py** para correr el producer de kafka y leer los tuits con los parametros establecidos y los va a disponibilizar en el topico.
 
 6. Ejecutar el archivo **consumer_mongodb.py** para ir leyendo los datos del topico y guardarlos en la base mongodb.
-
-Este archivo va a estar conectandose al topico, leer los datos, los guardara en el servidor mongodb e imprimirlos por pantalla.
 
 7. Acceder a **mongo-express** para ver la base de datos y los registros guardados
 ```url
