@@ -1,4 +1,4 @@
-from kafka import KafkaConsumer, client_async
+from kafka import KafkaConsumer
 from pymongo import MongoClient
 import json
 import config
@@ -7,7 +7,7 @@ def main():
     consumer = KafkaConsumer(config.TOPIC_NAME)
 
     try:
-        client = MongoClient('mongodb://root:my_password@localhost')
+        client = MongoClient(f'mongodb://{config.MONGODB_USER}:{config.MONGODB_USER_PASSWORD}@{config.MONGODB_SERVER}')
         print("Conectado a mongodb!!!")
 
         db = client[config.TOPIC_NAME]

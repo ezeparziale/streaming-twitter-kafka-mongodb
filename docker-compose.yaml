@@ -42,9 +42,8 @@ services:
     hostname: mongodb1
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: my_password
+    env_file:
+      - ./mongodb.env
     networks:
       - kakfa-net
     # volumes:
@@ -57,9 +56,9 @@ services:
     hostname: mongo-express1
     ports:
       - 8081:8081
+    env_file:
+      - ./mongodb.env
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: my_password
       ME_CONFIG_MONGODB_SERVER: mongodb1   
     depends_on:
       - mongodb-1
