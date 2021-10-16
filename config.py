@@ -14,6 +14,11 @@ API_SECRET_KEY = os.environ.get("TWITTER_API_SECRET_KEY")
 ACCESS_TOKEN = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 
+# MONGODB
+MONGODB_SERVER = 'localhost'
+MONGODB_USER = os.environ.get("MONGO_INITDB_ROOT_USERNAME")
+MONGODB_USER_PASSWORD = os.environ.get("MONGO_INITDB_ROOT_PASSWORD")
+
 # KAFKA
 SERVER_KAFKA = 'localhost:9092'
 TOPIC_NAME = 'twitter' # NOMBRE DEL TOPIC DE KAFKA
@@ -22,9 +27,3 @@ TOPIC_NAME = 'twitter' # NOMBRE DEL TOPIC DE KAFKA
 TRACKS = ['#argentina','argentina','seleccion','messi','escaloneta','afa']
 LOCATION = [-126.2,-56.0,22.3,58.9]
 LANGUAGES = ['en','es']
-
-
-# MONGODB
-MONGODB_SERVER = 'localhost'
-MONGODB_USER = os.environ.get("MONGO_INITDB_ROOT_USERNAME")
-MONGODB_USER_PASSWORD = os.environ.get("MONGO_INITDB_ROOT_PASSWORD")
