@@ -14,6 +14,6 @@ fs = admin_client.create_topics(topic_list)
 for topic, f in fs.items():
     try:
         f.result()
-        print("Topic {} creado".format(topic))
+        print("Topic {} created".format(topic))
     except Exception as e:
-        print("Error al crear el topic {}: {}".format(topic, e))
+        print("Error creating topic {}: {}".format(topic, e))

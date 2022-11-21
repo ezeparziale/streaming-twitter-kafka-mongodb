@@ -13,7 +13,7 @@ def main():
         client = MongoClient(
             f"mongodb://{settings.MONGO_USERNAME}:{settings.MONGO_PASSWORD}@{settings.MONGODB_SERVER}"
         )
-        print("Conectado a mongodb!!!")
+        print("Connected to mongodb!!!")
 
         db = client[settings.TOPIC_NAME]
         collection = db["tuits"]
