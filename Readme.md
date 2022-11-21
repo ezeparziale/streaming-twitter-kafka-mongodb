@@ -1,10 +1,10 @@
-# Streaming twitter con kafka simple con producer y consumer con mongodb
+# 🐦 Streaming twitter con kafka simple con producer y consumer con mongodb
 
 Demo de streaming de tuits usando la api de Twitter y enviando los tuis a kafka y guardado en mongodb.
 
 &nbsp;
 
-## Requerimientos
+## 📦 Requerimientos
 
 * Docker
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 &nbsp;
 
-## Ejecución
+## 🏃‍♂️ Ejecución
 
 1. Clonar el repositorio
 
@@ -98,7 +98,7 @@ http://localhost:8081
 
 ![image](img/Imagen1.png)
 
-## Extras
+## 🔔 Extras
 
 Algunas de las mejoras GUI para explorar mongodb
 
