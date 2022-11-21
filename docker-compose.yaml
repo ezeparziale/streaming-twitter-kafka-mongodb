@@ -1,8 +1,8 @@
-version: '3.8'
+version: "3.9"
 services:
 
   zoo-1:
-    image: confluentinc/cp-zookeeper:6.2.1
+    image: confluentinc/cp-zookeeper:7.3.0
     container_name: zoo-1
     hostname: zoo-1
     ports:
@@ -17,7 +17,7 @@ services:
       - kakfa-net
 
   kafka-1:
-    image: confluentinc/cp-kafka:6.2.1
+    image: confluentinc/cp-kafka:7.3.0
     container_name: kafka-1
     hostname: kafka-1
     ports:
@@ -37,7 +37,7 @@ services:
       - kakfa-net
 
   mongodb-1:
-    image: mongo:5.0.3-focal
+    image: mongo:6.0.3
     container_name: mongodb-1
     hostname: mongodb1
     ports:
@@ -51,7 +51,7 @@ services:
     #   - ./volume/mongo-config:/data/configdb
 
   mongo-express-1:
-    image: mongo-express:0.54.0
+    image: mongo-express:1.0.0-alpha
     container_name: mongo-express-1
     hostname: mongo-express1
     ports:
