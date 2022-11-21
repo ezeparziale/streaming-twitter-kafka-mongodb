@@ -24,9 +24,4 @@ if __name__ == "__main__":
         settings.TWITTER_ACCESS_TOKEN_SECRET,
     )
 
-    # Setting para la busqueda
-    tracks = settings.TRACKS  # Palabras, usuarios, hastags a buscar
-    location = settings.LOCATION  # Ubicacion area de tuits
-    languages = settings.LANGUAGES  # Idioma de los tuis
-
-    stream.filter(track=tracks, locations=location, languages=languages)
+    stream.filter(track=settings.TRACKS, locations=settings.LOCATION, languages=settings.LANGUAGES)
