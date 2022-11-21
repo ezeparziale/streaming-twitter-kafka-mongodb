@@ -1,12 +1,12 @@
 from tweepy import Stream
 from kafka import KafkaProducer
-import config
+from config import settings
 
-producer = KafkaProducer(bootstrap_servers=config.SERVER_KAFKA)
+producer = KafkaProducer(bootstrap_servers=settings.SERVER_KAFKA)
 
 class StdOutListener(Stream):
   def on_data(self, data):
-    producer.send(config.TOPIC_NAME, data)
+    producer.send(settings.TOPIC_NAME, data)
     print(data)
     return True
 
@@ -14,11 +14,15 @@ class StdOutListener(Stream):
     print(status)
   
 if __name__ == '__main__':
-  stream  = StdOutListener(config.API_KEY, config.API_SECRET_KEY, config.ACCESS_TOKEN, config.ACCESS_TOKEN_SECRET)
+  stream  = StdOutListener(
+    settings.TWITTER_API_KEY, 
+    settings.TWITTER_API_SECRET_KEY, 
+    settings.TWITTER_ACCESS_TOKEN, 
+    settings.TWITTER_ACCESS_TOKEN_SECRET)
 
   # Setting para la busqueda
-  tracks = config.TRACKS        # Palabras, usuarios, hastags a buscar
-  location = config.LOCATION    # Ubicacion area de tuits
-  languages = config.LANGUAGES  # Idioma de los tuis
+  tracks = settings.TRACKS        # Palabras, usuarios, hastags a buscar
+  location = settings.LOCATION    # Ubicacion area de tuits
+  languages = settings.LANGUAGES  # Idioma de los tuis
 
   stream.filter(track=tracks, locations=location, languages=languages)
