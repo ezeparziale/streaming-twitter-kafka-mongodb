@@ -1,6 +1,6 @@
 # 🐦 Streaming tweets with kafka and mongodb
 
-Demo of streaming tweets from twiiter and save it in mongodb.
+Demo of streaming tweets from twitter and save it in mongodb.
 
 - [X] Mongodb
 - [X] Mongo express
