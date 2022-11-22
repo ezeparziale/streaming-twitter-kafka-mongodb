@@ -14,7 +14,7 @@ services:
     #   - ./volume/zookeeper/data:/data
     #   - ./volume/zookeeper/datalog:/datalog
     networks:
-      - kakfa-net
+      - kafka-net
 
   kafka-1:
     image: confluentinc/cp-kafka:7.3.0
@@ -34,7 +34,7 @@ services:
     depends_on:
       - zoo-1
     networks:
-      - kakfa-net
+      - kafka-net
 
   mongodb-1:
     image: mongo:6.0.3
@@ -46,7 +46,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     networks:
-      - kakfa-net
+      - kafka-net
     # volumes:
     #   - ./volume/mongo-data:/data/db
     #   - ./volume/mongo-config:/data/configdb
@@ -64,7 +64,7 @@ services:
     depends_on:
       - mongodb-1
     networks:
-      - kakfa-net
+      - kafka-net
 
 networks:
-  kakfa-net:
+  kafka-net:
